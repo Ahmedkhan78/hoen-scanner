@@ -1,29 +1,29 @@
-# 🚀 Hoen Scanner Microservice
+# Hoen Scanner Microservice
 
-Hoen Scanner is a lightweight **Java microservice** built using the **Dropwizard framework**. It provides search functionality for hotels and car rentals based on a given city.
-
----
-
-## 🧠 Features
-
-* 🔍 Search hotels and rental cars by city
-* ⚡ Fast in-memory filtering
-* 📦 JSON-based request & response
-* 🧩 Built using microservice architecture principles
+Hoen Scanner is a lightweight Java microservice built using the Dropwizard framework. It provides search functionality for hotels and car rentals based on a given city.
 
 ---
 
-## 🏗️ Tech Stack
+## Features
+
+* Search hotels and rental cars by city
+* Fast in-memory filtering
+* JSON-based request and response handling
+* Demonstrates microservice architecture principles
+
+---
+
+## Tech Stack
 
 * Java (JDK 19)
 * Dropwizard
 * Maven
-* Jackson (JSON processing)
-* Postman (API testing)
+* Jackson (for JSON processing)
+* Postman (for API testing)
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 hoen-scanner/
@@ -43,21 +43,21 @@ hoen-scanner/
 
 ---
 
-## ⚙️ Prerequisites
+## Prerequisites
 
-Make sure you have installed:
+Ensure the following are installed:
 
 * Java JDK 19
 * Maven
 * Git
 * IntelliJ IDEA (recommended)
-* Postman (for testing)
+* Postman
 
 ---
 
-## 🚀 Getting Started
+## Setup and Run
 
-### 1. Clone the Repository
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/Ahmedkhan78/host-scanner.git
@@ -66,7 +66,7 @@ cd hoen-scanner
 
 ---
 
-### 2. Build the Project
+### 2. Build the project
 
 ```bash
 mvn clean install
@@ -74,7 +74,7 @@ mvn clean install
 
 ---
 
-### 3. Run the Application
+### 3. Run the application
 
 ```bash
 java -jar target/hoen-scanner-1.0-SNAPSHOT.jar server config.yml
@@ -82,28 +82,26 @@ java -jar target/hoen-scanner-1.0-SNAPSHOT.jar server config.yml
 
 ---
 
-## 🌐 Application URLs
+## Application URLs
 
 | Service     | URL                   |
 | ----------- | --------------------- |
 | API Server  | http://localhost:8080 |
 | Admin Panel | http://localhost:8081 |
 
-You should see:
+On successful startup, the following message appears in logs:
 
 ```
-========================================
 Welcome to Hoen Scanner!
-========================================
 ```
 
 ---
 
-## 📡 API Usage
+## API Endpoint
 
-### 🔎 Search Endpoint
+### POST `/search`
 
-**POST** `/search`
+Searches for hotels and rental cars based on a city.
 
 ### Request Body
 
@@ -115,7 +113,7 @@ Welcome to Hoen Scanner!
 
 ---
 
-### ✅ Response Example
+### Response Example
 
 ```json
 [
@@ -134,17 +132,13 @@ Welcome to Hoen Scanner!
 
 ---
 
-## 🧪 Testing with Postman
+## Testing with Postman
 
 1. Open Postman
-2. Set method to **POST**
-3. Enter URL:
-
-   ```
-   http://localhost:8080/search
-   ```
-4. Go to **Body → Raw → JSON**
-5. Add:
+2. Set method to POST
+3. Enter URL: `http://localhost:8080/search`
+4. Navigate to Body → Raw → JSON
+5. Enter:
 
 ```json
 {
@@ -152,53 +146,47 @@ Welcome to Hoen Scanner!
 }
 ```
 
-6. Click **Send**
+6. Click Send
 
 ---
 
-## 📍 Supported Cities
+## Supported Cities
 
 * petalborough
 * rustburg
 * shaleport
 
-Invalid city → returns empty array `[]`
+Invalid city returns an empty array.
 
 ---
 
-## 🧩 How It Works
+## How It Works
 
-1. Loads data from:
-
-   * `hotels.json`
-   * `rental_cars.json`
-2. Combines both into a single list
-3. Filters results based on user input (`city`)
-4. Returns matching results as JSON
+* Loads data from `hotels.json` and `rental_cars.json`
+* Combines both datasets into a single list
+* Filters results based on the requested city
+* Returns matching results in JSON format
 
 ---
 
-## 📌 Notes
+## Notes
 
-* Uses **Jackson** for serialization/deserialization
-* Dropwizard handles routing and server setup
-* Designed as a simple example of **microservice architecture**
-
----
-
-## 👨‍💻 Author
-
-**Ahmed Khan**
-
-* GitHub: https://github.com/Ahmedkhan78
+* Jackson is used for serialization and deserialization
+* Dropwizard handles routing and server configuration
+* Designed as a simple demonstration of microservice architecture
 
 ---
 
-## ⭐ Future Improvements
+## Author
 
-* Add query validation (empty/null city)
-* Add pagination
-* Add logging & error handling
-* Connect to database instead of static JSON
+Ahmed Khan
+GitHub: https://github.com/Ahmedkhan78
 
 ---
+
+## Future Improvements
+
+* Input validation for requests
+* Pagination support
+* Improved error handling
+* Database integration instead of static JSON
